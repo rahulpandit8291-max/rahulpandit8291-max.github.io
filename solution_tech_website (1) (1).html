@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solution Tech — Study & Health Resources</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#2563eb;--accent:#22c55e;--dark:#0f172a;--muted:#64748b;--bg:#f8fafc;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#0b1220}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1200px;margin:0 auto;padding:0 16px}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700}
+  .menu{display:flex;gap:18px;font-weight:600}
+  .menu a{padding:8px 10px;border-radius:8px}
+  .menu a:hover{background:#eef2ff;color:var(--primary)}
+  .hero{background:linear-gradient(180deg,#eef2ff,transparent);padding:56px 0}
+  .hero h1{font-size:38px;margin:0 0 10px}
+  .hero p{color:var(--muted);max-width:720px}
+  .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:12px 16px;border-radius:12px;font-weight:600;border:1px solid #e5e7eb;background:#fff}
+  .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:.2s;box-shadow:0 6px 18px rgba(2,6,23,.05)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(2,6,23,.08)}
+  .tag{font-size:12px;color:#fff;background:var(--accent);padding:4px 8px;border-radius:999px;width:max-content}
+  .search{margin:22px 0;display:flex;gap:10px}
+  .search input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid #e5e7eb}
+  .section{padding:36px 0}
+  .section h2{margin:0 0 14px}
+  .list{display:flex;flex-direction:column;gap:8px}
+  .list a{padding:10px;border-radius:10px;border:1px dashed #e5e7eb}
+  .list a:hover{background:#f1f5f9}
+  .two{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+  @media (max-width:900px){.two{grid-template-columns:1fr}}
+  .footer{background:var(--dark);color:#e2e8f0;margin-top:40px}
+  .footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;padding:28px 0}
+  @media (max-width:900px){.footer .cols{grid-template-columns:1fr}}
+  .social a{display:inline-block;margin-right:10px;padding:10px 12px;border-radius:10px;background:#0b1326}
+  .badge{background:#e0e7ff;color:#1e3a8a;padding:4px 8px;border-radius:999px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">ST</div>
+      <div>
+        <div style="font-weight:700">Solution Tech</div>
+        <div style="font-size:12px;color:var(--muted)">Founder: Rahul Pandit</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#categories">Categories</a>
+      <a href="#timetable">Time Table</a>
+      <a href="#health">Healthcare</a>
+      <a href="#environment">Environment</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>All-in-One Study, Gym & Health Notes</h1>
+    <p>Notes for 10th–12th, Graduation, BTech, Diploma, Pharmacy, Non-Tech, UPSC, Competitive Exams, Assignments, Reports, Time Tables, Gym guides and Healthcare awareness — all organized in one place.</p>
+    <div class="cta">
+      <a class="btn primary" href="#categories">Browse Notes</a>
+      <a class="btn" href="#contact">Submit Your Notes</a>
+    </div>
+    <div class="search">
+      <input id="searchInput" placeholder="Search: e.g., 'UPSC polity', '12th chemistry', 'gym diet'" />
+      <button class="btn" onclick="filterCards()">Search</button>
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="section">
+  <div class="container">
+    <h2>Categories</h2>
+    <div class="grid" id="cardGrid">
+      <div class="card" data-key="10th 12th school assignments">
+        <span class="tag">School</span>
+        <h3>10th–12th Notes & Assignments</h3>
+        <div class="list">
+          <a href="#">Class 10 Science Notes (PDF)</a>
+          <a href="#">Class 12 Chemistry Notes (PDF)</a>
+          <a href="#">Maths Assignments 10–12</a>
+        </div>
+      </div>
+      <div class="card" data-key="graduation btech diploma pharmacy non-tech">
+        <span class="tag">College</span>
+        <h3>Graduation / BTech / Diploma / Pharmacy</h3>
+        <div class="list">
+          <a href="#">BTech DBMS Notes</a>
+          <a href="#">Diploma Electrical Basics</a>
+          <a href="#">Pharmacy Pharmacology</a>
+        </div>
+      </div>
+      <div class="card" data-key="upsc competitive exams polity history geography">
+        <span class="tag">Competitive</span>
+        <h3>UPSC & Competitive Exams</h3>
+        <div class="list">
+          <a href="#">UPSC Polity Short Notes</a>
+          <a href="#">History One-Liners</a>
+          <a href="#">Reasoning Practice Set</a>
+        </div>
+      </div>
+      <div class="card" data-key="gym fitness diet workout plan">
+        <span class="tag">Fitness</span>
+        <h3>Gym & Workout Guides</h3>
+        <div class="list">
+          <a href="#">Beginner Workout Plan</a>
+          <a href="#">Home Workout Routine</a>
+          <a href="#">Muscle Gain Diet Chart</a>
+        </div>
+      </div>
+      <div class="card" data-key="reports projects templates">
+        <span class="tag">Academic</span>
+        <h3>Reports & Project Templates</h3>
+        <div class="list">
+          <a href="#">Project Report Format</a>
+          <a href="#">Internship Report Sample</a>
+          <a href="#">PPT Templates</a>
+        </div>
+      </div>
+      <div class="card" data-key="timetable study planner">
+        <span class="tag">Planning</span>
+        <h3>Study Time Tables</h3>
+        <div class="list">
+          <a href="#">Board Exam 30-Day Plan</a>
+          <a href="#">UPSC Daily Schedule</a>
+          <a href="#">College Weekly Planner</a>
+        </div>
+      </div>
+      <div class="card" id="health" data-key="healthcare hygiene nutrition mental health">
+        <span class="tag">Health</span>
+        <h3>Healthcare Awareness</h3>
+        <div class="list">
+          <a href="#">Basic First Aid Guide</a>
+          <a href="#">Mental Health Tips</a>
+          <a href="#">Balanced Nutrition Basics</a>
+        </div>
+      </div>
+      <div class="card" id="environment" data-key="environment protection sustainability">
+        <span class="tag">Environment</span>
+        <h3>Protect the Environment</h3>
+        <div class="list">
+          <a href="#">Plastic Reduction Guide</a>
+          <a href="#">Tree Plantation Kit</a>
+          <a href="#">Recycling at Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timetable" class="section">
+  <div class="container two">
+    <div class="card">
+      <h3>Create Your Weekly Time Table</h3>
+      <p class="badge">Interactive</p>
+      <div class="list">
+        <a href="#" onclick="downloadTT()">Download Printable Time Table (PDF)</a>
+        <a href="#">UPSC 8-Hour Study Routine</a>
+        <a href="#">Gym + Study Balance Plan</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Submit Notes</h3>
+      <p>Share your notes with students. We’ll credit your name.</p>
+      <input placeholder="Your Name" style="padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;width:100%">
+      <input placeholder="Google Drive Link" style="padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;width:100%">
+      <button class="btn primary">Submit</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container two">
+    <div class="card">
+      <h3>Contact</h3>
+      <p>For collaborations, sponsorships, or social media promotion.</p>
+      <input placeholder="Email" style="padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;width:100%">
+      <textarea placeholder="Message" rows="4" style="padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:8px;width:100%"></textarea>
+      <button class="btn primary">Send</button>
+    </div>
+    <div class="card">
+      <h3>Follow on Social Media</h3>
+      <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Telegram</a>
+        <a href="#">Facebook</a>
+      </div>
+      <p style="margin-top:10px;color:var(--muted)">Post daily notes & reels to grow your audience.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container cols">
+    <div>
+      <h3>Solution Tech</h3>
+      <p>Free education resources platform built by Rahul Pandit. Organized notes, health and environment awareness for students and learners.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <div class="list">
+        <a href="#categories">All Notes</a>
+        <a href="#timetable">Time Tables</a>
+        <a href="#health">Healthcare</a>
+      </div>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <div class="list">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-bottom:16px;color:#94a3b8">© 2026 Solution Tech — All rights reserved.</div>
+</footer>
+
+<script>
+function filterCards(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const cards=document.querySelectorAll('#cardGrid .card');
+  cards.forEach(c=>{
+    const k=c.dataset.key||'';
+    c.style.display = k.includes(q) ? 'flex' : 'none';
+  });
+}
+function downloadTT(){
+  const content=`WEEKLY TIME TABLE\n\nMon: Study 2h | Gym 1h\nTue: Study 3h\nWed: Study 2h | Revision 1h\nThu: Study 3h\nFri: Study 2h | Practice 1h\nSat: Mock Test 2h | Analysis 1h\nSun: Rest + Light Revision`;
+  const blob=new Blob([content],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='SolutionTech_TimeTable.txt';
+  a.click();
+}
+</script>
+</body>
+</html>
